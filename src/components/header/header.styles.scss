@@ -18,9 +18,26 @@
         align-items: center;
         justify-content: flex-end;
 
+        .active {
+            background-color: gold;
+            border-radius: 5%;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            font-size: 19px;
+        }
+
         .option {
             padding: 10px 15px;
             cursor: pointer;
+
+            &:hover {
+                border-top: gold solid 2px;
+            }
+
+            &:focus {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
         }
     }
 }
