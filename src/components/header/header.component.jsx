@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -9,66 +9,62 @@ import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropDown from "../cart-dropdown/cart-dropdown.component";
 import {
     selectCartHidden,
-    selectCartItems,
+    // selectCartItems,
 } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import "./header.styles.scss";
 
+import {
+    HeaderContainer,
+    LogoContainer,
+    OptionsContainer,
+    OptionDiv,
+    OptionLink,
+} from "./header.styles";
 const Header = ({ currentUser, hidden, history }) => {
     const {
         location: { pathname },
     } = history;
     return (
-        <div className="header">
-            <Link className="logo-container" to="/">
+        <HeaderContainer>
+            <LogoContainer to="/">
                 <Logo className="logo" />
-            </Link>
-            <div className="options">
-                <Link
-                    className={`option ${pathname == "/" ? "active" : ""}`}
-                    to="/"
-                >
+            </LogoContainer>
+            <OptionsContainer>
+                <OptionLink pathname={pathname} to="/">
                     CATEGORY
-                </Link>
-                <Link
-                    className={`option ${pathname == "/shop" ? "active" : ""}`}
-                    to="/shop"
-                >
+                </OptionLink>
+                <OptionLink pathname={pathname} to="/shop">
                     SHOP
-                </Link>
-                <Link
-                    className={`option ${
-                        pathname == "/contact" ? "active" : ""
-                    }`}
-                    to="/contact"
-                >
+                </OptionLink>
+                <OptionLink pathname={pathname} to="/contact">
                     CONTACT
-                </Link>
+                </OptionLink>
                 {currentUser ? (
-                    <div
-                        className={`option ${pathname == "/" ? "active" : ""}`}
+                    <OptionLink
+                        as="div"
+                        pathname={pathname}
                         onClick={() => auth.signOut()}
                     >
                         SIGN OUT
-                    </div>
+                    </OptionLink>
                 ) : (
-                    <Link
-                        className={`option ${
-                            pathname == "/signin" ? "active" : ""
-                        }`}
-                        to="/signin"
-                    >
+                    <OptionLink pathname={pathname} to="/signin">
                         SIGN IN
-                    </Link>
+                    </OptionLink>
                 )}
                 <CartIcon />
-            </div>
+            </OptionsContainer>
             {hidden ? null : <CartDropDown />}
-        </div>
+        </HeaderContainer>
     );
 };
 
+/* <Link
+className={`option ${pathname === "/shop" ? "active" : ""}`}
+to="/shop"
+> */
 // state are root reducer
 // const mapStateToProps = (state) => {
 // const mapStateToProps = (state) => {

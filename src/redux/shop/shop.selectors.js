@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { selectCartItems } from "../cart/cart.selectors";
+// import { selectCartItems } from "../cart/cart.selectors";
 
 // const COLLECTION_ID_MAP = {
 //     hats: 1,

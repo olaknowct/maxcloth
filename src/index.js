@@ -9,7 +9,7 @@ import App from "./App";
 
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
-import { persistStore } from "redux-persist";
+// import { persistStore } from "redux-persist";
 
 ReactDOM.render(
     <Provider store={store}>
