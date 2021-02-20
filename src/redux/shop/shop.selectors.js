@@ -19,7 +19,10 @@ export const selectCollections = createSelector(
 export const selectCollectionForPreview = createSelector(
     [selectCollections],
     // object.key returns an array that is y we can use map
-    (collections) => Object.keys(collections).map((key) => collections[key])
+    (collections) =>
+        collections
+            ? Object.keys(collections).map((key) => collections[key])
+            : []
 );
 
 export const selectCollection = (collectionUrlParam) =>
