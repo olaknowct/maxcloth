@@ -2,15 +2,18 @@ import React from "react";
 
 import { Route } from "react-router-dom";
 
-import { createStructuredSelector } from "reselect";
+// import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import {
     selectIsCollectionFetching,
     selectIsCollectionsLoaded,
 } from "../../redux/shop/shop.selectors";
-import CollectionsOverview from "../../components/collection-overview/collection-overview.component";
-import CollectionPage from "../collection/collection.component";
+// import CollectionsOverview from "../../components/collection-overview/collection-overview.component";
+// import CollectionPage from "../collection/collection.component";
+import CollectionPageContainer from "../collection/collection.container";
+
+import CollectionsOverviewContainer from "../../components/collection-overview/collection-overview.container";
 
 import { fetchCollectionStartAsync } from "../../redux/shop/shop.actions";
 
@@ -21,10 +24,10 @@ import { fetchCollectionStartAsync } from "../../redux/shop/shop.actions";
 
 // import { updateCollections } from "../../redux/shop/shop.actions";
 
-import WithSpinner from "../../components/with-spinner/with-spinner.component";
+// import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
-const CollectionOverviewWithSpinner = WithSpinner(CollectionsOverview);
-const CollectionPageWithSpinner = WithSpinner(CollectionPage);
+// const CollectionOverviewWithSpinner = WithSpinner(CollectionsOverview);
+// const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 
 class ShopPage extends React.Component {
     // state = {
@@ -63,7 +66,7 @@ class ShopPage extends React.Component {
     }
 
     render() {
-        const { match, isCollectionFetching, isCollectionsLoaded } = this.props;
+        const { match } = this.props;
         // const { loading } = this.state;
         return (
             <div className="shop-page">
@@ -71,33 +74,35 @@ class ShopPage extends React.Component {
                     exact
                     path={`${match.path}`}
                     // component={CollectionsOverview}
-                    render={(props) => (
-                        <CollectionOverviewWithSpinner
-                            isLoading={isCollectionFetching}
-                            {...props}
-                        />
-                    )}
+                    // render={(props) => (
+                    //     <CollectionOverviewWithSpinner
+                    //         isLoading={isCollectionFetching}
+                    //         {...props}
+                    //     />
+                    // )}
+                    component={CollectionsOverviewContainer}
                 />
                 <Route
                     path={`${match.path}/:collectionId`}
                     // component={CollectionPage}
-                    render={(props) => (
-                        <CollectionPageWithSpinner
-                            isLoading={!isCollectionsLoaded}
-                            {...props}
-                        />
-                    )}
+                    // render={(props) => (
+                    //     <CollectionPageWithSpinner
+                    //         isLoading={!isCollectionsLoaded}
+                    //         {...props}
+                    //     />
+                    // )}
+                    component={CollectionPageContainer}
                 />
             </div>
         );
     }
 }
 
-const mapStateToProps = createStructuredSelector({
-    // syntax error if we used isFetching for isloading, so use collectionloaded intead
-    isCollectionFetching: selectIsCollectionFetching,
-    isCollectionsLoaded: selectIsCollectionsLoaded,
-});
+// const mapStateToProps = createStructuredSelector({
+// syntax error if we used isFetching for isloading, so use collectionloaded intead
+// isCollectionFetching: selectIsCollectionFetching,
+// isCollectionsLoaded: selectIsCollectionsLoaded,
+// });
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -112,4 +117,4 @@ const mapDispatchToProps = (dispatch) => {
 //     };
 // };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);
+export default connect(null, mapDispatchToProps)(ShopPage);
