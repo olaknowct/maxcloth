@@ -33,6 +33,12 @@ export const emailSignInStart = (emailAndPassword) => {
     };
 };
 
+export const checkUserSession = () => {
+    return {
+        type: UserActionTypes.CHECK_USER_SESSION,
+    };
+};
+
 // export const emailSignInSuccess = (user) => {
 //     return {
 //         type: UserActionTypes.EMAIL_SIGN_IN_SUCCESS,
