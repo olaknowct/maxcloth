@@ -35,28 +35,27 @@ class App extends React.Component {
     // subscribe
     componentDidMount() {
         // const { setCurrentUser, collectionArray } = this.props;
-        const { setCurrentUser } = this.props;
-        this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-            if (userAuth) {
-                const userRef = await createUserProfileDocument(userAuth);
-
-                userRef.onSnapshot((snapShot) => {
-                    setCurrentUser({
-                        id: snapShot.id,
-                        ...snapShot.data(),
-                    });
-                });
-            } else {
-                setCurrentUser(userAuth);
-                // addCollectionAndDocuments(
-                //     "collections",
-                //     collectionArray.map(({ title, items }) => ({
-                //         title,
-                //         items,
-                //     }))
-                // );
-            }
-        });
+        // const { setCurrentUser } = this.props;
+        // this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+        //     if (userAuth) {
+        //         const userRef = await createUserProfileDocument(userAuth);
+        //         userRef.onSnapshot((snapShot) => {
+        //             setCurrentUser({
+        //                 id: snapShot.id,
+        //                 ...snapShot.data(),
+        //             });
+        //         });
+        //     } else {
+        // setCurrentUser(userAuth);
+        // addCollectionAndDocuments(
+        //     "collections",
+        //     collectionArray.map(({ title, items }) => ({
+        //         title,
+        //         items,
+        //     }))
+        // );
+        //     }
+        // });
     }
 
     // unsubscribe
