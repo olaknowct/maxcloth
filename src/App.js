@@ -11,13 +11,13 @@ import CheckoutPage from "./pages/checkout/checkout.component";
 
 import Header from "./components/header/header.component";
 
-import {
-    auth,
-    createUserProfileDocument,
-    // addCollectionAndDocuments,
-} from "./firebase/firebase.utils";
+// import {
+//     auth,
+//     createUserProfileDocument,
+//     // addCollectionAndDocuments,
+// } from "./firebase/firebase.utils";
 
-import { setCurrentUser } from "./redux/user/user.actions";
+// import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 
 // import { selectCollectionForPreview } from "./redux/shop/shop.selectors";
@@ -94,10 +94,10 @@ const mapStateToProps = createStructuredSelector({
 });
 
 // a function that dispatch properties and trigger an action, in this case we trigger the set current user
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-    };
-};
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+//     };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

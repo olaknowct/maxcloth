@@ -12,16 +12,16 @@ export const googleSignInStart = () => {
     };
 };
 
-export const googleSignInSuccess = (user) => {
+export const signInSuccess = (user) => {
     return {
-        type: UserActionTypes.GOOGLE_SIGN_IN_SUCCESS,
+        type: UserActionTypes.SIGN_IN_SUCCESS,
         payload: user,
     };
 };
 
-export const googleSignInFailure = (error) => {
+export const signInFailure = (error) => {
     return {
-        type: UserActionTypes.GOOGLE_SIGN_IN_FAILURE,
+        type: UserActionTypes.SIGN_IN_FAILURE,
         payload: error,
     };
 };
@@ -33,16 +33,16 @@ export const emailSignInStart = (emailAndPassword) => {
     };
 };
 
-export const emailSignInSuccess = (user) => {
-    return {
-        type: UserActionTypes.EMAIL_SIGN_IN_SUCCESS,
-        payload: user,
-    };
-};
+// export const emailSignInSuccess = (user) => {
+//     return {
+//         type: UserActionTypes.EMAIL_SIGN_IN_SUCCESS,
+//         payload: user,
+//     };
+// };
 
-export const emailSignInFailure = (error) => {
-    return {
-        type: UserActionTypes.EMAIL_SIGN_IN_FAILURE,
-        payload: error,
-    };
-};
+// export const emailSignInFailure = (error) => {
+//     return {
+//         type: UserActionTypes.EMAIL_SIGN_IN_FAILURE,
+//         payload: error,
+//     };
+// };
