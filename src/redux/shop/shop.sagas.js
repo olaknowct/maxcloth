@@ -1,6 +1,6 @@
 // listening of every action of specific type we pass into it
 // call does effect inside on our function generatore that invokes the map
-import { takeLatest, call, put } from "redux-saga/effects";
+import { takeLatest, call, put, all } from "redux-saga/effects";
 
 import {
     firestore,
@@ -10,6 +10,7 @@ import {
 import {
     fetchCollectionsSuccess,
     fetchCollectionsFailure,
+    fetchCollectionStart,
 } from "./shop.actions";
 
 // listening to specific action types
@@ -50,4 +51,8 @@ export function* fetchCollectionsStart() {
         ShopActionTypes.FETCH_COLLECTIONS_START,
         fetchCollectionAsync
     );
+}
+
+export function* shopSagas() {
+    yield all([call(fetchCollectionStart)]);
 }
