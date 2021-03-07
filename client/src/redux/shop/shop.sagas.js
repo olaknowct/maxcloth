@@ -10,7 +10,7 @@ import {
 import {
     fetchCollectionsSuccess,
     fetchCollectionsFailure,
-    fetchCollectionStart,
+    // fetchCollectionStart,
 } from "./shop.actions";
 
 // listening to specific action types
