@@ -1,5 +1,6 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
 
 const StripeCheckoutButton = ({ price }) => {
     const priceForStripe = price * 100;
@@ -7,8 +8,23 @@ const StripeCheckoutButton = ({ price }) => {
         "pk_test_51IL779HTeZ2E9R9W6hgy6RMYfQ5aDqYlyA7NbdiMsyQ6wDWXKtGeErMpSkHZ4NOobNVwZZnjEhmsqruj32vXs24T00eXHvqmmV";
 
     const onToken = (token) => {
-        console.log(token);
-        alert("payment successful!!");
+        axios({
+            url: "payment",
+            method: "post",
+            data: {
+                amount: priceForStripe,
+                token,
+            },
+        })
+            .then((response) => {
+                alert("payment successful");
+            })
+            .catch((error) => {
+                console.log("paymenterror", JSON.parse(error));
+                alert(
+                    "there was an issue with your payment, please make sure you provided credit cart"
+                );
+            });
     };
 
     return (
