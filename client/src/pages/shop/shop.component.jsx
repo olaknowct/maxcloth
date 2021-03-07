@@ -5,10 +5,10 @@ import { Route } from "react-router-dom";
 // import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import {
-    selectIsCollectionFetching,
-    selectIsCollectionsLoaded,
-} from "../../redux/shop/shop.selectors";
+// import {
+//     selectIsCollectionFetching,
+//     selectIsCollectionsLoaded,
+// } from "../../redux/shop/shop.selectors";
 // import CollectionsOverview from "../../components/collection-overview/collection-overview.component";
 // import CollectionPage from "../collection/collection.component";
 import CollectionPageContainer from "../collection/collection.container";
@@ -18,7 +18,7 @@ import CollectionsOverviewContainer from "../../components/collection-overview/c
 // import { fetchCollectionStartAsync } from "../../redux/shop/shop.actions";
 import {
     fetchCollectionStart,
-    fetchCollectionStartAsync,
+    // fetchCollectionStartAsync,
 } from "../../redux/shop/shop.actions";
 
 // import {

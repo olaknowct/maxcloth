@@ -7,8 +7,8 @@ import "./index.css";
 import { store, persistor } from "./redux/store";
 import App from "./App";
 
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-import reportWebVitals from "./reportWebVitals";
+// import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+// import reportWebVitals from "./reportWebVitals";
 // import { persistStore } from "redux-persist";
 
 ReactDOM.render(

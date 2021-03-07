@@ -21,7 +21,7 @@ import {
     HeaderContainer,
     LogoContainer,
     OptionsContainer,
-    OptionDiv,
+    // OptionDiv,
     OptionLink,
 } from "./header.styles";
 const Header = ({ currentUser, hidden, history, signOutStart }) => {
