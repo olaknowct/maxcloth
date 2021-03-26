@@ -12,7 +12,8 @@ link : https://maxcloth.herokuapp.com/
 - Adding/Deducting quantity of an item from Cart
 - Purchasing Cart listed via Paypal (Test account)
 
-### Technology/Libraries used
+### Frontend Technology/Libraries
+- Javascript, HTML, CSS
 - React
 - React Router Dom
 - React Redux
@@ -30,4 +31,9 @@ link : https://maxcloth.herokuapp.com/
 - Lazy Loading
 - Redux Persist
 - Stripe Payments
+- Compression
 - Firebase
+
+
+### Backend 
+- Firebase, Nodejs, Express
